@@ -1,0 +1,187 @@
+spin -a  main.pml
+ltl prop1: [] ((! ((m1.header==1))) || (<> ((msg1.header==1))))
+ltl prop2: [] ((! ((m2.header==2))) || ((<> ((msg2.header==2))) && (<> ((msg1.header==2)))))
+ltl prop3: (<> ((msg1.header==1))) && (<> ([] ((msgacounter==1))))
+ltl prop4: <> ([] ((msgacounter==1)))
+  the model contains 4 never claims: prop4, prop3, prop2, prop1
+  only one claim is used in a verification run
+  choose which one with ./pan -a -N name (defaults to -N prop1)
+  or use e.g.: spin -search -ltl prop1 runtime.pml
+gcc -DMEMLIM=102400 -DVECTORSZ=20700 -DBITSTATE -DXUSAFE -w -o pan pan.c
+./pan -m10000  -k5 -a -n -c0 -w20 -N prop2
+Pid: 1415
+pan: ltl formula prop2
+
+(Spin Version 6.4.6 -- 2 December 2016)
+	+ Partial Order Reduction
+
+Bit statespace search for:
+	never claim         	+ (prop2)
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 2088 byte, depth reached 479, errors: 0
+   152057 states, stored (394071 visited)
+   373096 states, matched
+   767167 transitions (= visited+matched)
+  2357966 atomic steps
+
+hash factor: 2.66088 (best if > 100.)
+
+bits set per state: 5 (-k5)
+
+Stats on memory usage (in Megabytes):
+  306.847	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.125	memory used for hash array (-w20)
+    0.076	memory used for bit stack
+    0.534	memory used for DFS stack (-m10000)
+    1.239	other (proc and chan stacks)
+    1.974	total actual memory usage
+
+
+
+pan: elapsed time 8.64 seconds
+No errors found -- did you verify all claims?
+spin -a  main.pml
+ltl prop1: [] ((! ((m1.header==1))) || (<> ((msg1.header==1))))
+ltl prop2: [] ((! ((m2.header==2))) || ((<> ((msg2.header==2))) && (<> ((msg1.header==2)))))
+ltl prop3: (<> ((msg1.header==1))) && (<> ([] ((msgacounter==1))))
+ltl prop4: <> ([] ((msgacounter==1)))
+  the model contains 4 never claims: prop4, prop3, prop2, prop1
+  only one claim is used in a verification run
+  choose which one with ./pan -a -N name (defaults to -N prop1)
+  or use e.g.: spin -search -ltl prop1 runtime.pml
+gcc -DMEMLIM=102400 -DVECTORSZ=20700 -DBITSTATE -DXUSAFE -w -o pan pan.c
+./pan -m10000  -k5 -a -n -c0 -w20 -N prop1
+Pid: 1723
+pan: ltl formula prop1
+
+(Spin Version 6.4.6 -- 2 December 2016)
+	+ Partial Order Reduction
+
+Bit statespace search for:
+	never claim         	+ (prop1)
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 2088 byte, depth reached 479, errors: 0
+   214292 states, stored (397979 visited)
+   660445 states, matched
+  1058424 transitions (= visited+matched)
+  3830456 atomic steps
+
+hash factor: 2.63475 (best if > 100.)
+
+bits set per state: 5 (-k5)
+
+Stats on memory usage (in Megabytes):
+  432.436	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.125	memory used for hash array (-w20)
+    0.076	memory used for bit stack
+    0.534	memory used for DFS stack (-m10000)
+    1.239	other (proc and chan stacks)
+    1.974	total actual memory usage
+
+
+
+pan: elapsed time 10.5 seconds
+No errors found -- did you verify all claims?
+
+spin -a  main.pml
+ltl prop1: [] ((! ((m1.header==1))) || (<> ((msg1.header==1))))
+ltl prop2: [] ((! ((m2.header==2))) || ((<> ((msg2.header==2))) && (<> ((msg1.header==2)))))
+ltl prop3: (<> ((msg1.header==1))) && (<> ([] ((msgacounter==1))))
+ltl prop4: [] (! ((msgacounter==2)))
+  the model contains 4 never claims: prop4, prop3, prop2, prop1
+  only one claim is used in a verification run
+  choose which one with ./pan -a -N name (defaults to -N prop1)
+  or use e.g.: spin -search -ltl prop1 runtime.pml
+gcc -DMEMLIM=102400 -DVECTORSZ=20700 -DBITSTATE -DXUSAFE -w -o pan pan.c
+./pan -m10000  -k5 -a -n -c1 -w20 -N prop3
+Pid: 17100
+pan: ltl formula prop3
+pan:1: acceptance cycle (at depth 258)
+pan: wrote main.pml.trail
+
+(Spin Version 6.4.6 -- 2 December 2016)
+Warning: Search not completed
+	+ Partial Order Reduction
+
+Bit statespace search for:
+	never claim         	+ (prop3)
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 2184 byte, depth reached 259, errors: 1
+       40 states, stored (42 visited)
+        1 states, matched
+       43 transitions (= visited+matched)
+      181 atomic steps
+
+hash factor: 24966.1 (best if > 100.)
+
+bits set per state: 5 (-k5)
+
+Stats on memory usage (in Megabytes):
+    0.084	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.125	memory used for hash array (-w20)
+    0.076	memory used for bit stack
+    0.534	memory used for DFS stack (-m10000)
+    1.239	other (proc and chan stacks)
+    1.974	total actual memory usage
+
+
+
+pan: elapsed time 0.02 seconds
+To replay the error-trail, goto Simulate/Replay and select "Run"
+spin -a  main.pml
+ltl prop1: [] ((! ((m1.header==1))) || (<> ((msg1.header==1))))
+ltl prop2: [] ((! ((m2.header==2))) || ((<> ((msg2.header==2))) && (<> ((msg1.header==2)))))
+ltl prop3: (<> ((msg1.header==1))) && (<> ([] ((msgacounter==1))))
+ltl prop4: [] (! ((msgacounter==2)))
+  the model contains 4 never claims: prop4, prop3, prop2, prop1
+  only one claim is used in a verification run
+  choose which one with ./pan -a -N name (defaults to -N prop1)
+  or use e.g.: spin -search -ltl prop1 runtime.pml
+gcc -DMEMLIM=102400 -DVECTORSZ=20700 -DBITSTATE -DXUSAFE -w -o pan pan.c
+./pan -m10000  -k5 -a -n -c0 -w20 -N prop3
+Pid: 17169
+pan: ltl formula prop3
+pan:1: acceptance cycle (at depth 258)
+
+(Spin Version 6.4.6 -- 2 December 2016)
+	+ Partial Order Reduction
+
+Bit statespace search for:
+	never claim         	+ (prop3)
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 2184 byte, depth reached 500, errors: 2520
+   183077 states, stored (422128 visited)
+   924560 states, matched
+  1346688 transitions (= visited+matched)
+  6480923 atomic steps
+
+hash factor: 2.48402 (best if > 100.)
+
+bits set per state: 5 (-k5)
+
+Stats on memory usage (in Megabytes):
+  386.206	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.125	memory used for hash array (-w20)
+    0.076	memory used for bit stack
+    0.534	memory used for DFS stack (-m10000)
+    5.185	other (proc and chan stacks)
+    5.922	total actual memory usage
+
+
+
+pan: elapsed time 14.3 seconds
+To replay the error-trail, goto Simulate/Replay and select "Run"
+
+
