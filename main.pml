@@ -19,10 +19,10 @@ port p1; port q1; port q2; port p2; // port q0 ; port c0; portTriple p00; portFl
 
 /* ltl properties */
 /* sending and receiving with specific ports */
-ltl prop1 { [] ((m1.header==1) -> <> (msg1.header==1))} //true
-ltl prop2 { []((m2.header==2) -> (<> (msg2.header==2) && <> (msg1.header == 2)))} //true
+ltl prop1 { [] ((m1.header==11) -> <> (msg1.header==11))} //true
+ltl prop2 { []((m2.header==22) -> (<> (msg2.header==22) && <> (msg1.header ==22)))} //true
 /* unexpected packets */
-ltl prop3 { <>(msg1.header==1)&&(<>[](msgacounter==1))} //F
+ltl prop3 { <>(msg1.header==11)&&(<>[](msgacounter==1))} //F
 ltl prop4 {[](!(msgacounter==2))} //T
 
 
